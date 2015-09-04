@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
-      :provider               => 'AWS',                        # required
-      :aws_access_key_id      => 'AKIAIF6WTSXOMPDQLK5A',                        # required
-      :aws_secret_access_key  => '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'                        # required
+      :provider               => 'AWS',
+      :aws_access_key_id      => ENV["aws_access_key_id"],
+      :aws_secret_access_key  => ENV["aws_secret_access_key"],
   }
-  config.fog_directory  = 'reviewsite-ken'                     #bucket name on AWS S3
+  config.fog_directory  = ENV["fog_directory"]                    #bucket name on AWS S3
 end
