@@ -47,4 +47,5 @@ gem 'carrierwave'
 gem 'fog'
 gem 'figaro' #always do figaro heroku:set -e production
 gem 'mini_magick' #works with carrierwave apps/uploaders/image_uploader.rb
+gem 'devise'
 
