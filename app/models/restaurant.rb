@@ -1,6 +1,7 @@
 class Restaurant < ActiveRecord::Base
 
   has_many :reviews
+  has_one :user
 
   mount_uploader :image, ImageUploader
 
@@ -13,5 +14,13 @@ class Restaurant < ActiveRecord::Base
                                 message: 'must start with http:// or https://' }
   #validates :address, format: { with: /\A\d+[^,]+,[^,]+, [A-Z]{2} \z/,
                                 #message: 'must be in the format 220 Yonge St , Toronto, ON' }
+
+  def search_data
+    attributes.merge(
+      comment: reviews.map(&:comment)
+      #first_name: user(&:first_name)
+    )
+  end
+
 
 end
