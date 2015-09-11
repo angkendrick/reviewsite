@@ -48,6 +48,14 @@ class RestaurantsController < ApplicationController
       redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.'
   end
 
+  def search
+    if params[:search].present?
+      @restaurants = Restaurant.search(params[:search])
+    else
+      @restaurants = Restaurant.all
+    end
+  end
+
   private
 
   def set_restaurant
